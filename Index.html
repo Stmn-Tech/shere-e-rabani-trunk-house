@@ -11,8 +11,9 @@
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
 body {background:#0f0f0f;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
 a {text-decoration:none;color:inherit;}
-nav {position:fixed;top:0;width:100%;background:rgba(0,0,0,0.8);display:flex;justify-content:center;gap:2rem;padding:1rem 0;z-index:1000;backdrop-filter:blur(5px);}
-nav a {color:#fff;font-weight:700;transition:0.3s;} nav a:hover {color:#ffcc00;}
+nav {position:fixed;top:0;width:100%;background:rgba(0,0,0,0.85);display:flex;justify-content:center;gap:2rem;padding:1rem 0;z-index:1000;backdrop-filter:blur(5px);}
+nav a {color:#fff;font-weight:700;transition:0.3s;} 
+nav a:hover {color:#ffcc00;}
 header {position:relative;width:100%;height:100vh;background:#1a1a1a;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;}
 header h1 {font-size:3rem;text-transform:uppercase;color:#ffcc00;margin-bottom:1rem;animation:fadeInDown 2s ease forwards;}
 header p {font-size:1.2rem;color:#ccc;margin-bottom:2rem;animation:fadeInUp 2s ease forwards;}
@@ -21,6 +22,7 @@ header .btn:hover {background:#fff;color:#000;transform:scale(1.1);}
 #particles-js, #sparks-canvas, #trail-canvas {position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 @keyframes fadeInDown {from {opacity:0;transform:translateY(-50px);}to {opacity:1;transform:translateY(0);}}
 @keyframes fadeInUp {from {opacity:0;transform:translateY(50px);}to {opacity:1;transform:translateY(0);}}
+@keyframes whatsapp-pulse {0%,100% {transform:scale(1);}50% {transform:scale(1.2);}}
 section {padding:5rem 2rem;max-width:1200px;margin:auto;position:relative;}
 h2 {font-size:2.5rem;text-align:center;color:#ffcc00;margin-bottom:2rem;}
 .products {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;position:relative;}
@@ -33,12 +35,18 @@ h2 {font-size:2.5rem;text-align:center;color:#ffcc00;margin-bottom:2rem;}
 .service {background:#1f1f1f;padding:1.5rem;border-radius:15px;text-align:center;transition:0.3s;}
 .service:hover {transform:translateY(-10px);box-shadow:0 0 30px #ffcc00;}
 .service h3 {margin-bottom:1rem;color:#ffcc00;}
+.about, .testimonials, .gallery {padding:3rem 2rem; background:#111; border-radius:20px; margin:2rem 0;}
+.about p, .testimonials p {color:#ccc; font-size:1rem; line-height:1.6; text-align:center;}
+.testimonial-item {background:#1f1f1f;padding:1rem;border-radius:15px;margin:1rem 0;transition:0.3s;}
+.testimonial-item:hover {transform:scale(1.02);box-shadow:0 0 25px #ffcc00;}
+.gallery {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+.gallery img {width:100%;border-radius:10px;transition:0.3s;}
+.gallery img:hover {transform:scale(1.05);box-shadow:0 0 20px #ffcc00;}
 .contact {text-align:center;}
 .contact p {margin-bottom:1rem;}
 .contact a {display:inline-block;margin:0.5rem;padding:0.7rem 1.5rem;background:#ffcc00;color:#000;font-weight:bold;border-radius:10px;transition:0.3s;}
 .contact a:hover {background:#fff;color:#000;transform:scale(1.1);}
 .whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:70px;height:70px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:2.2rem;z-index:1000;box-shadow:0 5px 20px rgba(0,0,0,0.5);animation:whatsapp-pulse 2s infinite;}
-@keyframes whatsapp-pulse {0%,100% {transform:scale(1);}50% {transform:scale(1.2);}}
 footer {text-align:center;padding:2rem;background:#111;margin-top:2rem;color:#888;}
 @media(max-width:768px){header h1{font-size:2.2rem;}header p{font-size:1rem;}}
 </style>
@@ -49,6 +57,9 @@ footer {text-align:center;padding:2rem;background:#111;margin-top:2rem;color:#88
 <a href="#home">Home</a>
 <a href="#products">Products</a>
 <a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -69,6 +80,8 @@ footer {text-align:center;padding:2rem;background:#111;margin-top:2rem;color:#88
 <div class="product"><img src="https://via.placeholder.com/250x150?text=Mutti+&+Tub"><h3>Mutti & Tub</h3><p>Durable containers for household and industrial use.</p></div>
 <div class="product"><img src="https://via.placeholder.com/250x150?text=Steel+Pillar"><h3>Steel Pillar</h3><p>Strong steel pillars for construction projects.</p></div>
 <div class="product"><img src="https://via.placeholder.com/250x150?text=Duct"><h3>Duct</h3><p>Custom steel ducts for ventilation and construction.</p></div>
+<div class="product"><img src="https://via.placeholder.com/250x150?text=Barola"><h3>Barola</h3><p>Heavy-duty steel Barola for industrial use.</p></div>
+<div class="product"><img src="https://via.placeholder.com/250x150?text=Cooler"><h3>Steel Cooler</h3><p>Strong steel casing for industrial coolers.</p></div>
 </div>
 </section>
 
@@ -78,7 +91,33 @@ footer {text-align:center;padding:2rem;background:#111;margin-top:2rem;color:#88
 <div class="service"><h3>Electric Welding</h3><p>Precision electric welding for all metal types.</p></div>
 <div class="service"><h3>Gas Welding</h3><p>Professional gas welding for construction and fabrication.</p></div>
 <div class="service"><h3>Steel Welding</h3><p>Expert steel welding for industrial projects.</p></div>
+<div class="service"><h3>Custom Fabrication</h3><p>Custom metal fabrication per client specifications.</p></div>
+<div class="service"><h3>Repair Services</h3><p>Repair of industrial metal equipment and products.</p></div>
+<div class="service"><h3>On-site Welding</h3><p>We come to your site for heavy and large welding projects.</p></div>
 </div>
+</section>
+
+<section id="about" data-aos="fade-up" class="about">
+<h2>About Us</h2>
+<p>Established before 2000, Shere-e-Rabani Trunk House is a family-run business led by Mr. Tahir Maqsood Nasir and his sons Salman, Zaman, Nouman, and Zeeshan. We specialize in steel and metal products including safes, trunks, mutti, tubs, barola, steel pillars, ducts, and more. Our expertise extends to electric, gas, and steel welding services. We combine traditional craftsmanship with modern technology to deliver durable and reliable products to our customers across Punjab, Pakistan.</p>
+</section>
+
+<section id="testimonials" data-aos="fade-up" class="testimonials">
+<h2>Testimonials</h2>
+<div class="testimonial-item"><p>"Amazing quality and timely delivery! Highly recommend their steel safes."</p></div>
+<div class="testimonial-item"><p>"Professional welding services. Custom fabrication was perfect."</p></div>
+<div class="testimonial-item"><p>"Family-run business with great customer service and expertise."</p></div>
+<div class="testimonial-item"><p>"Strong and durable products that last for years. Very satisfied."</p></div>
+</section>
+
+<section id="gallery" data-aos="fade-up" class="gallery">
+<h2>Gallery</h2>
+<img src="https://via.placeholder.com/300x200?text=Product+1" alt="Product 1">
+<img src="https://via.placeholder.com/300x200?text=Product+2" alt="Product 2">
+<img src="https://via.placeholder.com/300x200?text=Product+3" alt="Product 3">
+<img src="https://via.placeholder.com/300x200?text=Product+4" alt="Product 4">
+<img src="https://via.placeholder.com/300x200?text=Product+5" alt="Product 5">
+<img src="https://via.placeholder.com/300x200?text=Product+6" alt="Product 6">
 </section>
 
 <section id="contact" data-aos="fade-up">
@@ -112,7 +151,7 @@ const sparksCtx = sparksCanvas.getContext('2d');
 sparksCanvas.width = window.innerWidth;
 sparksCanvas.height = window.innerHeight;
 const sparks = [];
-for(let i=0;i<150;i++){sparks.push({x:Math.random()*sparksCanvas.width,y:Math.random()*sparksCanvas.height,dx:(Math.random()-0.5)*2,dy:(Math.random()-0.5)*2,r:2+Math.random()*2});}
+for(let i=0;i<300;i++){sparks.push({x:Math.random()*sparksCanvas.width,y:Math.random()*sparksCanvas.height,dx:(Math.random()-0.5)*3,dy:(Math.random()-0.5)*3,r:2+Math.random()*2});}
 
 function animateSparks(){
   sparksCtx.clearRect(0,0,sparksCanvas.width,sparksCanvas.height);
@@ -135,10 +174,40 @@ const trailCtx=trailCanvas.getContext('2d');
 trailCanvas.width=window.innerWidth; trailCanvas.height=window.innerHeight;
 const trailSparks=[];
 document.addEventListener('mousemove',e=>{
-  for(let i=0;i<5;i++){
-    trailSparks.push({x:e.clientX+Math.random()*20-10,y:e.clientY+Math.random()*20-10,alpha:1,r:2+Math.random()*2});
+  for(let i=0;i<10;i++){
+    trailSparks.push({x:e.clientX+Math.random()*30-15,y:e.clientY+Math.random()*30-15,alpha:1,r:2+Math.random()*2});
   }
 });
 function animateTrail(){
   trailCtx.clearRect(0,0,trailCanvas.width,trailCanvas.height);
-  trailSparks.forEach((s,i)=>{
+  for(let i=trailSparks.length-1;i>=0;i--){
+    const s = trailSparks[i];
+    trailCtx.fillStyle = `rgba(255,204,0,${s.alpha})`;
+    trailCtx.beginPath();
+    trailCtx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    trailCtx.fill();
+    s.alpha -= 0.03;
+    if(s.alpha <=0) trailSparks.splice(i,1);
+  }
+  requestAnimationFrame(animateTrail);
+}
+animateTrail();
+
+// Optional: welding sound
+const weldingSound = new Audio('https://www.soundjay.com/mechanical/sounds/welding-1.mp3');
+document.querySelectorAll('.product').forEach(product=>{
+  product.addEventListener('mouseenter',()=>{weldingSound.loop=true; weldingSound.play();});
+  product.addEventListener('mouseleave',()=>{weldingSound.pause(); weldingSound.currentTime=0;});
+});
+
+// Resize canvases
+window.addEventListener('resize',()=>{
+  sparksCanvas.width=window.innerWidth;
+  sparksCanvas.height=window.innerHeight;
+  trailCanvas.width=window.innerWidth;
+  trailCanvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
